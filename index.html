@@ -1,59 +1,154 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BLACK RIVER — Архив</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#09090b">
+<title>Black River Wiki</title>
 <style>
-:root{--bg:#090b10;--panel:#11151d;--panel2:#171d27;--line:#293344;--text:#e5e9f0;--muted:#96a2b5;--accent:#8ba6d6;--accent2:#536a91;--danger:#b26d78}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 20% -10%,#182338 0%,transparent 45%),var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}header{padding:28px 20px 20px;border-bottom:1px solid var(--line);background:#0b0e14cc}header .wrap,main{max-width:1100px;margin:auto}.kicker{letter-spacing:.22em;color:var(--accent);font-size:12px}.brand{font-size:clamp(30px,5vw,48px);letter-spacing:.12em;margin:5px 0 0;font-weight:650}.sub{color:var(--muted);margin-top:4px}.layout{display:grid;grid-template-columns:230px 1fr;gap:18px;margin:22px auto;padding:0 18px}aside,.content{background:var(--panel);border:1px solid var(--line);border-radius:16px}aside{padding:14px;height:max-content;position:sticky;top:14px}.nav{display:grid;gap:7px}.nav button,.button{border:1px solid transparent;background:transparent;color:var(--muted);padding:11px 12px;text-align:left;border-radius:10px;cursor:pointer;font:inherit}.nav button:hover,.nav button.active{background:var(--panel2);border-color:var(--line);color:var(--text)}.content{padding:20px;min-height:70vh}.section-title{margin:0 0 14px;font-size:23px}.search{width:100%;background:#090c12;border:1px solid var(--line);border-radius:10px;padding:12px;color:var(--text);font:inherit;margin-bottom:16px}.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}.card{background:linear-gradient(160deg,var(--panel2),#0e1219);border:1px solid var(--line);border-radius:14px;padding:16px;cursor:pointer;transition:.15s}.card:hover{border-color:var(--accent2);transform:translateY(-1px)}.card h3{margin:0 0 5px;font-size:18px}.meta{color:var(--muted);font-size:13px}.tag{display:inline-block;border:1px solid var(--line);color:var(--accent);border-radius:999px;padding:3px 9px;font-size:12px;margin:8px 5px 0 0}.detail-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.btnrow{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.button{background:var(--panel2);border-color:var(--line);color:var(--text);text-align:center;padding:9px 12px}.button:hover{border-color:var(--accent2)}.button.primary{background:#29384f;border-color:#435a7e}.button.warn{border-color:#50323b;color:#e0a3ac}.tabs{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0;border-bottom:1px solid var(--line);padding-bottom:10px}.tabs button{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:8px;padding:8px 10px;cursor:pointer}.tabs button.active{background:#202b3c;color:var(--text)}.field{margin:12px 0}.field label{display:block;color:var(--muted);font-size:13px;margin-bottom:5px}.field input,.field textarea,.field select{width:100%;background:#090c12;border:1px solid var(--line);border-radius:9px;color:var(--text);padding:10px;font:inherit}.field textarea{min-height:110px;resize:vertical}.info{border-left:2px solid var(--accent2);padding:10px 13px;background:#121a26;border-radius:0 10px 10px 0;color:#bdc8d9;margin:14px 0}.empty{color:var(--muted);padding:20px;text-align:center;border:1px dashed var(--line);border-radius:12px}.listitem{padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--panel2);margin:8px 0}.small{font-size:12px;color:var(--muted)}footer{max-width:1100px;margin:0 auto;padding:10px 18px 28px;color:var(--muted);font-size:12px}a{color:var(--accent)}@media(max-width:700px){.layout{grid-template-columns:1fr}aside{position:static}.content{padding:15px}.brand{letter-spacing:.08em}}
-</style></head>
-<body><header><div class="wrap"><div class="kicker">RESTRICTED ARCHIVE · UNIVERSE INDEX</div><div class="brand">BLACK RIVER</div><div class="sub">Архив персонажей, событий и истории мира</div></div></header>
-<main class="layout"><aside><div class="kicker" style="margin:5px 8px 12px">РАЗДЕЛЫ</div><div class="nav"><button class="active" data-page="home">⌂ &nbsp; Главная</button><button data-page="characters">◈ &nbsp; Персонажи</button><button data-page="episodes">▤ &nbsp; Эпизоды</button><button data-page="relations">⌁ &nbsp; Отношения</button><button data-page="lore">◉ &nbsp; Лор и правила</button></div><hr style="border-color:var(--line);margin:16px 0"><div class="small">Локальный архив. Изменения сохраняются в этом браузере.</div></aside><section class="content" id="content"></section></main><footer>BLACK RIVER · Fan-created universe archive · Данные сохраняются локально в браузере этого устройства.</footer>
-<script>
-const starter={characters:[
-{id:'azrael',name:'Азраил',subtitle:'Ангел смерти · небинарный',summary:'Холодный, прямолинейный, эмоционально пустой или имитирующий тепло.',details:{'Основное':'Ангел смерти. Небинарный. Высота: 160 см.','Внешность':'Белые волосы с бледно-голубыми кончиками, повязка, белые крестовые глаза, чёрный нимб, белые крылья, бинты.','Характер':'Холодный, прямолинейный, имитирует тепло.','Способности и особенности':'Не может опьянеть. Не ест конфеты.','История':'Родился из звёзд. Из воспоминаний известны чёрная река и плавающие звёзды.','Отношения':'Хохо — племянница; Ситри испытывает к нему симпатию (подтверждено).'}},
-{id:'sitri',name:'Ситри Лейн',subtitle:'Ангел смерти',summary:'Закрытый, раздражительный, защитный, неловкий и недоверчивый.',details:{'Основное':'Ангел смерти. Рост: 170 см.','Внешность':'Подробности дизайна можно заполнить. Один глаз удалён ритуалом Азраила.','Характер':'Закрытый, раздражительный, защитный, недоверчивый, неловкий.','Способности и особенности':'Курит; стресс и переработки влияют на него.','История':'Хотел заниматься музыкой; причины отказа от этого пока раскрыты не полностью.','Отношения':'Катринa и Хамуки — близкие друзья. Ранее встречался с Хамуки. Испытывает симпатию к Азраилу; взаимность не подтверждена.'}},
-{id:'hamuki',name:'Хамуки Ханахаки',subtitle:'Паук · дворецкий',summary:'Единственный не-ангел среди работников гостиницы.',details:{'Основное':'Паучья раса. Рост пока не указан. День рождения: 14 февраля.','Внешность':'Серые кожа и волосы (хвост), чёрные глаза с красными трещинами, две звёздные заколки, хвост. Пальто, белая рубашка, корсет и бант.','Характер':'Полная анкета не заполнена.','Способности и особенности':'Хвост может ненадолго обездвиживать при касании. Есть секретные способности Ханахаки (не раскрывать).','История':'Мать — Орхид. В 14 лет пережил смерть родителей; существует тёмное альтер-эго.','Отношения':'Ситри — бывший романтический партнёр (по событиям S3E10); Катрина и Ситри — близкие друзья.'}},
-{id:'katrina',name:'Катрина Вэйвэй',subtitle:'Ангел смерти',summary:'Высокая, строгая сотрудница гостиницы.',details:{'Основное':'Ангел смерти. Рост: 190 см.','Внешность':'Звёздные зрачки, чёрный берет, очки, левая рука перевязана.','Характер':'Подробная анкета не заполнена.','Способности и особенности':'—','История':'В человеческом прошлом испытывала давление из-за моделинга, пианино и искусства.','Отношения':'Ситри и Хамуки — близкие друзья.'}},
-{id:'hoho',name:'Хохо',subtitle:'Падший ангел',summary:'Резкая, отчуждённая, смелая и язвительная.',details:{'Основное':'Падший ангел, дочь бога.','Внешность':'Анкета внешности не заполнена.','Характер':'Злая, смелая, отстранённая, язвительная, резкая, держит дистанцию.','Способности и особенности':'—','История':'Живёт с Олд; обвинена Хихи.','Отношения':'Олд — совместное проживание. Первое подтверждённое знакомство с Азраилом — S2E8.'}},
-{id:'tinn',name:'Тинн',subtitle:'Персонаж',summary:'Рост: 173 см. В истории есть конфликт с братом Себастьяном.',details:{'Основное':'Рост: 173 см.','Внешность':'Анкета не заполнена.','Характер':'Анкета не заполнена.','Способности и особенности':'В эпизоде «Под светом софитов» чёрная субстанция вышла из песка и схватила его за руку; значение неизвестно.','История':'Конфликт с братом Себастьяном.','Отношения':'Себастьян — брат.'}},
-{id:'fol',name:'Фол',subtitle:'Ara · вокалистка Color Birds',summary:'Ситри называет её «принцесса»; Фол ненавидит Ситри.',details:{'Основное':'Рост: 170 см.','Внешность':'Синяя кожа, сине-серые волосы, фиолетовые глаза, чёрная слеза под глазом, белый берет с чёрной лентой, золотая звезда, крылья.','Характер':'Полная анкета не заполнена.','Способности и особенности':'Участвует в Color Birds.','История':'Подробности не заполнены.','Отношения':'Фол заявляет, что любит Бэт; отношения с Коко не уточнены полностью. Ненавидит Ситри.'}},
-{id:'coco',name:'Коко',subtitle:'Ara · Color Birds',summary:'Красная кожа, розово-красные волосы и красные крылья.',details:{'Основное':'Рост: 175 см.','Внешность':'Красная кожа, розово-красные волосы, белая звезда под глазом, красные крылья, тёмный берет с длинной лентой.','Характер':'Анкета не заполнена.','Способности и особенности':'Участница Color Birds.','История':'Подробности не заполнены.','Отношения':'Сложные отношения с Фол; текущий статус не уточнён.'}},
-{id:'bat',name:'Бэт',subtitle:'Персонаж',summary:'Портальная магия; в сцене концерта создаёт белую сферу.',details:{'Основное':'Рост не указан.','Внешность':'Тёплая красно-оранжевая кожа, коричневые волосы, кепка с лисьими ушами, светлые глаза с вертикальными зрачками, хвост с сердцем, красный комбинезон.','Характер':'Анкета не заполнена.','Способности и особенности':'Портальная магия; белая сфера в эпизоде концерта.','История':'Подробности не заполнены.','Отношения':'Фол испытывает к ней чувства; Бэт вместе с Тинн.'}}
-],episodes:[
-{season:1,num:3,title:'Цена выбора',status:'Со сценарием',summary:'История Катринa.'},
-{season:1,num:6,title:'Хеллоуин по чужим правилам',status:'Со сценарием',summary:'Ситри и Катрина украшают гостиницу; Хамуки ест конфеты гостей; проблемы с работниками и лицензией Азраила.'},
-{season:1,num:7,title:'Прогулка в лесу',status:'Со сценарием',summary:'Флэшбек поездки Хамуки, Ситри, Тинн и Себастьяна в лес; встреча с Утопленником и другие события.'},
-{season:2,num:4,title:'Ещё немного',status:'Со сценарием',summary:'Прошлое Хамуки, Орхид, зеркало с альтер-эго и лекарство «Жидкая паутина».'},
-{season:2,num:8,title:'Семейные проблемы',status:'Со сценарием',summary:'Хохо посещает гостиницу; первое подтверждённое знакомство с Азраилом; правило #2001.'},
-{season:3,num:7,title:'Проклятый род',status:'Со сценарием',summary:'Хамуки уже встречается с Ситри; просьба взять выходные; исследование Бэт и другие детали.'},
-{season:3,num:8,title:'По ту сторону обвинения',status:'Со сценарием',summary:'Хохо и Олд; обвинение Бэт; конфликт и финал с фотографией сестёр.'},
-{season:3,num:9,title:'Чужие чувства',status:'Со сценарием',summary:'Вечер Ситри, Катрины и Азраила в баре; признание Ситри; на следующий день Хамуки навещает Ситри.'},
-{season:3,num:10,title:'Когда чувства меняются',status:'Со сценарием',summary:'Флэшбек начала отношений Ситри и Хамуки; в настоящем Ситри говорит, что чувства угасли.'},
-{season:4,num:1,title:'Плохой работник',status:'Со сценарием',summary:'Ситри страдает от кошмаров, бессонницы и переработок; Хамуки и Азраил поддерживают его.'},
-{season:4,num:2,title:'Кошмарные слухи',status:'Со сценарием',summary:'Азраил видит кошмар о чёрной реке; остаётся у Ситри; слухи среди сотрудников.'},
-{season:4,num:3,title:'Под светом софитов',status:'Со сценарием',summary:'Ситри, Катрина и Хамуки идут на концерт Color Birds; истории Фол, Коко, Бэт и Тинн.'}
-],lore:[{title:'Гостиница',body:'Обычная гостиница с ночными событиями. Азраил — руководитель; его кабинет на третьем этаже. Работники, кроме Хамуки, — ангелы.'},{title:'Правила гостиницы',body:'#3307 — «Не бегать по коридорам». #2001 — посторонним запрещено ходить по гостинице.'},{title:'Религия Азраила',body:'Азраил создал собственную религию. Работники гостиницы, кроме Хамуки, служат ей после ритуала. Хамуки не знает о существовании религии.'}]};
-let db=JSON.parse(localStorage.getItem('brwiki')||'null')||starter;let page='home',selected=null,tab='Основное',editMode=false;
-function save(){localStorage.setItem('brwiki',JSON.stringify(db));}
-function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function nav(p){page=p;selected=null;render();document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===p));}
-document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>nav(b.dataset.page));
-function home(){return `<h2 class="section-title">Добро пожаловать в архив</h2><p class="meta">Внутренний индекс вселенной Black River</p><div class="info">Архив хранит подтверждённый канон. Неизвестные сведения оставлены пустыми, теории не считаются каноном.</div><div class="cards"><div class="card" onclick="nav('characters')"><h3>◈ Персонажи</h3><div class="meta">${db.characters.length} карточек · анкеты</div></div><div class="card" onclick="nav('episodes')"><h3>▤ Эпизоды</h3><div class="meta">${db.episodes.length} внесённых эпизодов</div></div><div class="card" onclick="nav('relations')"><h3>⌁ Отношения</h3><div class="meta">Связи и заметки</div></div><div class="card" onclick="nav('lore')"><h3>◉ Лор</h3><div class="meta">Мир, правила, религия</div></div></div><div class="btnrow"><button class="button primary" onclick="addCharacter()">＋ Добавить персонажа</button><button class="button" onclick="addEpisode()">＋ Добавить эпизод</button><button class="button" onclick="exportData()">Экспорт архива JSON</button><button class="button" onclick="document.getElementById('importFile').click()">Импорт JSON</button><input id="importFile" type="file" accept="application/json" hidden onchange="importData(event)"></div>`}
-function characters(){if(selected){let c=db.characters.find(x=>x.id===selected);if(!c)return '';return `<div class="detail-head"><div><div class="kicker">CHARACTER FILE</div><h2 class="section-title">${esc(c.name)}</h2><div class="meta">${esc(c.subtitle||'')}</div></div><button class="button" onclick="selected=null;render()">← Назад</button></div><p>${esc(c.summary||'')}</p><div class="tabs">${Object.keys(c.details).map(t=>`<button class="${t===tab?'active':''}" onclick="tab='${esc(t)}';render()">${esc(t)}</button>`).join('')}</div><div class="info">${esc(c.details[tab]||'Не заполнено')}</div><div class="btnrow"><button class="button primary" onclick="editCharacter('${c.id}')">Редактировать досье</button><button class="button warn" onclick="deleteCharacter('${c.id}')">Удалить</button></div>`}
-return `<h2 class="section-title">Персонажи</h2><input class="search" id="csearch" placeholder="Поиск по именам..." oninput="filterCards()"><div class="btnrow"><button class="button primary" onclick="addCharacter()">＋ Добавить персонажа</button></div><div class="cards" id="ccards">${db.characters.map(c=>`<div class="card" data-search="${esc((c.name+' '+c.subtitle+' '+c.summary).toLowerCase())}" onclick="selected='${c.id}';tab='Основное';render()"><h3>${esc(c.name)}</h3><div class="meta">${esc(c.subtitle||'')}</div><p>${esc(c.summary||'')}</p></div>`).join('')}</div>`}
-function episodes(){return `<h2 class="section-title">Эпизоды</h2><div class="btnrow"><button class="button primary" onclick="addEpisode()">＋ Добавить эпизод</button></div>${[1,2,3,4,5].map(s=>`<h3>Сезон ${s}</h3>${db.episodes.filter(e=>e.season===s).sort((a,b)=>a.num-b.num).map(e=>`<div class="listitem"><div class="detail-head"><strong>S${e.season}E${e.num} · ${esc(e.title)}</strong><button class="button" onclick="editEpisode(${s},${e.num})">Редактировать</button></div><div class="meta">${esc(e.status||'Статус не указан')}</div><p>${esc(e.summary||'')}</p></div>`).join('')||'<div class="empty">Эпизоды пока не добавлены.</div>'}`).join('')}`}
-function relations(){return `<h2 class="section-title">Отношения персонажей</h2><div class="info">Этот раздел пока пустой. Добавляй связи вручную, чтобы теории не смешивались с каноном.</div><div id="relationsList">${db.relations?.map((r,i)=>`<div class="listitem"><strong>${esc(r.pair)}</strong><p>${esc(r.note)}</p><button class="button warn" onclick="deleteRelation(${i})">Удалить</button></div>`).join('')||'<div class="empty">Связи не внесены.</div>'}</div><div class="field"><label>Персонажи / связь</label><input id="rpair" placeholder="Например: Ситри ↔ Хамуки"></div><div class="field"><label>Заметка</label><textarea id="rnote" placeholder="Только подтверждённые сведения или пометка, что это теория"></textarea></div><button class="button primary" onclick="addRelation()">Сохранить связь</button>`}
-function lore(){return `<h2 class="section-title">Лор и правила</h2>${db.lore.map((l,i)=>`<div class="listitem"><h3>${esc(l.title)}</h3><p>${esc(l.body)}</p><button class="button" onclick="editLore(${i})">Редактировать</button><button class="button warn" onclick="deleteLore(${i})">Удалить</button></div>`).join('')}<div class="btnrow"><button class="button primary" onclick="addLore()">＋ Добавить заметку</button></div>`}
-function render(){let c=document.getElementById('content');c.innerHTML=page==='home'?home():page==='characters'?characters():page==='episodes'?episodes():page==='relations'?relations():lore();}
-function filterCards(){let q=document.getElementById('csearch').value.toLowerCase();document.querySelectorAll('#ccards .card').forEach(c=>c.style.display=c.dataset.search.includes(q)?'':'none')}
-function addCharacter(){let name=prompt('Имя персонажа:');if(!name)return;let id='c'+Date.now();db.characters.push({id,name,subtitle:'',summary:'',details:{'Основное':'','Внешность':'','Характер':'','Способности и особенности':'','История':'','Отношения':''}});save();selected=id;page='characters';render();}
-function editCharacter(id){let c=db.characters.find(x=>x.id===id);let name=prompt('Имя',c.name);if(name===null)return;c.name=name;c.subtitle=prompt('Подзаголовок',c.subtitle||'')??c.subtitle;c.summary=prompt('Краткое описание',c.summary||'')??c.summary;for(let k in c.details){let v=prompt(k,c.details[k]||'');if(v!==null)c.details[k]=v;}save();render();}
-function deleteCharacter(id){if(confirm('Удалить досье персонажа?')){db.characters=db.characters.filter(c=>c.id!==id);selected=null;save();render();}}
-function addEpisode(){let season=+prompt('Номер сезона (1–5):','1');if(!(season>=1&&season<=5))return;let num=+prompt('Номер эпизода:');if(!num)return;let title=prompt('Название:','');if(title===null)return;let summary=prompt('Краткое содержание:','')||'';db.episodes.push({season,num,title,status:'Без сценария',summary});save();render();}
-function editEpisode(s,n){let e=db.episodes.find(x=>x.season===s&&x.num===n);if(!e)return;let title=prompt('Название',e.title);if(title===null)return;e.title=title;e.summary=prompt('Содержание',e.summary||'')??e.summary;e.status=prompt('Статус (Со сценарием / Без сценария)',e.status||'')??e.status;save();render();}
-function addRelation(){let pair=document.getElementById('rpair').value.trim(),note=document.getElementById('rnote').value.trim();if(!pair||!note)return;db.relations=db.relations||[];db.relations.push({pair,note});save();render();}function deleteRelation(i){db.relations.splice(i,1);save();render();}
-function addLore(){let title=prompt('Заголовок:');if(!title)return;let body=prompt('Содержание:')||'';db.lore.push({title,body});save();render();}function editLore(i){let l=db.lore[i];l.title=prompt('Заголовок',l.title)||l.title;l.body=prompt('Содержание',l.body)||l.body;save();render();}function deleteLore(i){if(confirm('Удалить заметку?')){db.lore.splice(i,1);save();render();}}
-function exportData(){let blob=new Blob([JSON.stringify(db,null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='black-river-archive.json';a.click();URL.revokeObjectURL(a.href)}function importData(e){let f=e.target.files[0];if(!f)return;let reader=new FileReader();reader.onload=()=>{try{db=JSON.parse(reader.result);save();render();alert('Архив импортирован.')}catch{alert('Не удалось прочитать JSON-файл.')}};reader.readAsText(f)}
-render();
-</script></body></html>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg:#09090b; --panel:#111114; --panel2:#17171b;
+  --line:#393940; --silver:#c9c9d0; --muted:#898991;
+  --white:#f0eff2; --accent:#777783;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; color:var(--white); background:
+  radial-gradient(ellipse at 50% -15%,#292930 0,transparent 45%),
+  repeating-linear-gradient(135deg,rgba(255,255,255,.012) 0 1px,transparent 1px 7px),
+  var(--bg);
+  font-family:Manrope,Arial,sans-serif; line-height:1.6;
+}
+body:before{
+  content:"BLACK RIVER  ✦  ANGEL  ✦  SECRETS HEAVEN  ✦  FORGET THEM  ✦  ";
+  position:fixed; inset:0; z-index:-1; pointer-events:none;
+  color:rgba(210,210,220,.025); font:700 38px/2 Cormorant Garamond,serif;
+  letter-spacing:8px; overflow:hidden; overflow-wrap:anywhere;
+}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1080px,calc(100% - 36px));margin:auto}
+.topline{border-bottom:1px solid #29292e;color:var(--muted);font-size:10px;letter-spacing:3px;text-align:center;padding:10px}
+header{padding:30px 0 22px;text-align:center;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:10px;letter-spacing:5px;color:var(--muted);text-transform:uppercase}
+h1{font:600 clamp(42px,10vw,76px)/.95 "Cormorant Garamond",serif;letter-spacing:5px;margin:12px 0;color:#e4e3e8;text-shadow:0 3px 25px #77777730}
+.subtitle{color:#a4a4ad;font:italic 17px "Cormorant Garamond",serif;letter-spacing:2px}
+nav{display:flex;justify-content:center;gap:8px 22px;flex-wrap:wrap;padding:17px 0;border-bottom:1px solid var(--line)}
+nav a{font-size:11px;letter-spacing:1px;color:#b9b9c1;text-transform:uppercase}
+nav a:hover{color:white;text-decoration:underline;text-underline-offset:6px}
+.hero{padding:64px 0 50px;text-align:center}
+.ornament{color:#85858f;letter-spacing:12px;font-size:13px}
+h2{font:600 clamp(28px,6vw,42px)/1.1 "Cormorant Garamond",serif;letter-spacing:1px;margin:12px 0}
+.hero p{max-width:650px;margin:14px auto;color:#aaaab2;font-size:13px}
+.rule{height:1px;background:linear-gradient(90deg,transparent,#55555e,transparent);margin:28px auto;max-width:520px}
+.section{padding:26px 0 45px}
+.section-head{display:flex;align-items:center;gap:15px;margin-bottom:20px}
+.section-head:after{content:"";height:1px;flex:1;background:var(--line)}
+.section-head h3{font:600 26px "Cormorant Garamond",serif;letter-spacing:2px;margin:0}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{background:linear-gradient(145deg,#17171b,#0e0e11);border:1px solid var(--line);padding:20px;min-height:145px;position:relative}
+.card:before{content:"✦";position:absolute;right:15px;top:10px;color:#55555e}
+.card h4{font:600 23px "Cormorant Garamond",serif;margin:0 25px 8px 0;color:#e0dfe5}
+.card p{font-size:12px;color:#9999a2;margin:0}
+.tag{display:inline-block;margin-top:14px;padding:4px 8px;border:1px solid #414149;color:#aaaab3;font-size:9px;letter-spacing:1px;text-transform:uppercase}
+.quote{text-align:center;border:1px solid var(--line);background:#101014;padding:30px 18px;margin:15px 0 45px}
+.quote p{font:italic 23px "Cormorant Garamond",serif;color:#d0cfd5;margin:0 0 8px}
+.quote small{color:var(--muted);letter-spacing:2px;font-size:9px}
+footer{border-top:1px solid var(--line);padding:24px 0 32px;text-align:center;color:#777780;font-size:10px;letter-spacing:1px}
+footer p{margin:5px}
+@media(max-width:700px){
+ .wrap{width:min(100% - 28px,560px)}
+ .topline{font-size:8px;letter-spacing:2px}
+ header{padding:25px 0 18px}
+ nav{gap:12px 16px;padding:15px 4px}
+ nav a{font-size:10px}
+ .hero{padding:48px 0 34px}
+ .grid{grid-template-columns:1fr;gap:10px}
+ .card{min-height:unset;padding:18px}
+ .section{padding:20px 0 32px}
+ .quote{padding:25px 14px}
+}
+</style>
+</head>
+<body>
+<div class="topline">✦ AN ARCHIVE OF THE BLACK RIVER ✦</div>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">unofficial universe archive</div>
+    <h1>BLACK RIVER</h1>
+    <div class="subtitle">secrets heaven · forget them</div>
+  </div>
+</header>
+<nav class="wrap" aria-label="Главное меню">
+  <a href="#home">Главная</a>
+  <a href="#characters">Персонажи</a>
+  <a href="#episodes">Эпизоды</a>
+  <a href="#relations">Отношения</a>
+  <a href="#lore">Лор и правила</a>
+</nav>
+<main class="wrap" id="home">
+  <section class="hero">
+    <div class="ornament">✧ ─────── ✦ ─────── ✧</div>
+    <h2>Добро пожаловать в Black River</h2>
+    <p>Архив персонажей, историй, отношений и тайн мира Black River. Здесь собраны материалы авторского проекта.</p>
+    <div class="rule"></div>
+    <div class="eyebrow">THE HOTEL KEEPS ITS SECRETS</div>
+  </section>
+
+  <section class="section" id="characters">
+    <div class="section-head"><h3>Персонажи</h3></div>
+    <div class="grid">
+      <article class="card"><h4>Азраил</h4><p>Руководитель отеля. Ангел смерти.</p><span class="tag">Персонаж</span></article>
+      <article class="card"><h4>Ситри Лейн</h4><p>Ангел смерти. Один из работников отеля.</p><span class="tag">Персонаж</span></article>
+      <article class="card"><h4>Хамуки Ханахаки</h4><p>Дворецкий и единственный не-ангел среди работников.</p><span class="tag">Персонаж</span></article>
+      <article class="card"><h4>Катрина Вэйвэй</h4><p>Администратор отеля.</p><span class="tag">Персонаж</span></article>
+      <article class="card"><h4>Хохо</h4><p>Падший ангел.</p><span class="tag">Персонаж</span></article>
+      <article class="card"><h4>Тинн</h4><p>Персонаж истории Black River.</p><span class="tag">Персонаж</span></article>
+      <article class="card"><h4>Фол</h4><p>Певица группы Color Birds.</p><span class="tag">Персонаж</span></article>
+      <article class="card"><h4>Коко</h4><p>Участница Color Birds.</p><span class="tag">Персонаж</span></article>
+      <article class="card"><h4>Бат</h4><p>Персонаж, связанный с историей Color Birds.</p><span class="tag">Персонаж</span></article>
+    </div>
+  </section>
+
+  <section class="section" id="episodes">
+    <div class="section-head"><h3>Эпизоды</h3></div>
+    <div class="grid">
+      <article class="card"><h4>S1E3 · Цена выбора</h4><p>История Катрины и её пути в отель.</p><span class="tag">Сезон 1</span></article>
+      <article class="card"><h4>S1E6 · Хеллоуин по чужим правилам</h4><p>Хэллоуин в отеле.</p><span class="tag">Сезон 1</span></article>
+      <article class="card"><h4>S1E7 · Прогулка в лесу</h4><p>Воспоминание о поездке в лес.</p><span class="tag">Сезон 1</span></article>
+      <article class="card"><h4>S2E4 · Ещё немного</h4><p>История Хамуки и загадочного лекарства.</p><span class="tag">Сезон 2</span></article>
+      <article class="card"><h4>S2E8 · Семейные проблемы</h4><p>Визит Хохо в отель.</p><span class="tag">Сезон 2</span></article>
+      <article class="card"><h4>S3E7 · Проклятый род</h4><p>Хамуки, Ситри и поездка на родину.</p><span class="tag">Сезон 3</span></article>
+      <article class="card"><h4>S3E8 · По ту сторону обвинения</h4><p>Хохо и Олд.</p><span class="tag">Сезон 3</span></article>
+      <article class="card"><h4>S3E9 · Чужие чувства</h4><p>Вечер в баре и признание Ситри.</p><span class="tag">Сезон 3</span></article>
+      <article class="card"><h4>S3E10 · Когда чувства меняются</h4><p>Разговор Ситри и Хамуки.</p><span class="tag">Сезон 3</span></article>
+      <article class="card"><h4>S4E1 · Плохой работник</h4><p>Ситри сталкивается с переутомлением и принимает поддержку.</p><span class="tag">Сезон 4</span></article>
+      <article class="card"><h4>S4E2 · Кошмарные слухи</h4><p>Сон Азраила и слухи в отеле.</p><span class="tag">Сезон 4</span></article>
+      <article class="card"><h4>S4E3 · Под светом софитов</h4><p>Концерт Color Birds.</p><span class="tag">Сезон 4</span></article>
+    </div>
+  </section>
+
+  <section class="section" id="relations">
+    <div class="section-head"><h3>Отношения</h3></div>
+    <div class="card"><h4>Связи между персонажами</h4><p>Раздел для подтверждённых автором отношений и важных взаимодействий. Не все намёки означают канонную пару.</p></div>
+  </section>
+
+  <section class="section" id="lore">
+    <div class="section-head"><h3>Лор и правила</h3></div>
+    <div class="card"><h4>Отель Black River</h4><p>Справочная информация о мире, устройстве отеля, правилах и подтверждённых фактах канона.</p></div>
+  </section>
+
+  <div class="quote">
+    <p>«The river remembers everything.»</p>
+    <small>BLACK RIVER ARCHIVE</small>
+  </div>
+</main>
+<footer>
+  <p>BLACK RIVER WIKI — АВТОРСКИЙ ПРОЕКТ</p>
+  <p>При создании сайта использовался искусственный интеллект (ИИ).</p>
+  <p>✦ · ✧ · ✦</p>
+</footer>
+</body>
+</html>
