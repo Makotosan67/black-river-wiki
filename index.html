@@ -1,154 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#09090b">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Black River Wiki</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
-
-:root {
-  --bg:#09090b; --panel:#111114; --panel2:#17171b;
-  --line:#393940; --silver:#c9c9d0; --muted:#898991;
-  --white:#f0eff2; --accent:#777783;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0; color:var(--white); background:
-  radial-gradient(ellipse at 50% -15%,#292930 0,transparent 45%),
-  repeating-linear-gradient(135deg,rgba(255,255,255,.012) 0 1px,transparent 1px 7px),
-  var(--bg);
-  font-family:Manrope,Arial,sans-serif; line-height:1.6;
-}
-body:before{
-  content:"BLACK RIVER  ✦  ANGEL  ✦  SECRETS HEAVEN  ✦  FORGET THEM  ✦  ";
-  position:fixed; inset:0; z-index:-1; pointer-events:none;
-  color:rgba(210,210,220,.025); font:700 38px/2 Cormorant Garamond,serif;
-  letter-spacing:8px; overflow:hidden; overflow-wrap:anywhere;
-}
-a{color:inherit;text-decoration:none}
-.wrap{width:min(1080px,calc(100% - 36px));margin:auto}
-.topline{border-bottom:1px solid #29292e;color:var(--muted);font-size:10px;letter-spacing:3px;text-align:center;padding:10px}
-header{padding:30px 0 22px;text-align:center;border-bottom:1px solid var(--line)}
-.eyebrow{font-size:10px;letter-spacing:5px;color:var(--muted);text-transform:uppercase}
-h1{font:600 clamp(42px,10vw,76px)/.95 "Cormorant Garamond",serif;letter-spacing:5px;margin:12px 0;color:#e4e3e8;text-shadow:0 3px 25px #77777730}
-.subtitle{color:#a4a4ad;font:italic 17px "Cormorant Garamond",serif;letter-spacing:2px}
-nav{display:flex;justify-content:center;gap:8px 22px;flex-wrap:wrap;padding:17px 0;border-bottom:1px solid var(--line)}
-nav a{font-size:11px;letter-spacing:1px;color:#b9b9c1;text-transform:uppercase}
-nav a:hover{color:white;text-decoration:underline;text-underline-offset:6px}
-.hero{padding:64px 0 50px;text-align:center}
-.ornament{color:#85858f;letter-spacing:12px;font-size:13px}
-h2{font:600 clamp(28px,6vw,42px)/1.1 "Cormorant Garamond",serif;letter-spacing:1px;margin:12px 0}
-.hero p{max-width:650px;margin:14px auto;color:#aaaab2;font-size:13px}
-.rule{height:1px;background:linear-gradient(90deg,transparent,#55555e,transparent);margin:28px auto;max-width:520px}
-.section{padding:26px 0 45px}
-.section-head{display:flex;align-items:center;gap:15px;margin-bottom:20px}
-.section-head:after{content:"";height:1px;flex:1;background:var(--line)}
-.section-head h3{font:600 26px "Cormorant Garamond",serif;letter-spacing:2px;margin:0}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.card{background:linear-gradient(145deg,#17171b,#0e0e11);border:1px solid var(--line);padding:20px;min-height:145px;position:relative}
-.card:before{content:"✦";position:absolute;right:15px;top:10px;color:#55555e}
-.card h4{font:600 23px "Cormorant Garamond",serif;margin:0 25px 8px 0;color:#e0dfe5}
-.card p{font-size:12px;color:#9999a2;margin:0}
-.tag{display:inline-block;margin-top:14px;padding:4px 8px;border:1px solid #414149;color:#aaaab3;font-size:9px;letter-spacing:1px;text-transform:uppercase}
-.quote{text-align:center;border:1px solid var(--line);background:#101014;padding:30px 18px;margin:15px 0 45px}
-.quote p{font:italic 23px "Cormorant Garamond",serif;color:#d0cfd5;margin:0 0 8px}
-.quote small{color:var(--muted);letter-spacing:2px;font-size:9px}
-footer{border-top:1px solid var(--line);padding:24px 0 32px;text-align:center;color:#777780;font-size:10px;letter-spacing:1px}
-footer p{margin:5px}
-@media(max-width:700px){
- .wrap{width:min(100% - 28px,560px)}
- .topline{font-size:8px;letter-spacing:2px}
- header{padding:25px 0 18px}
- nav{gap:12px 16px;padding:15px 4px}
- nav a{font-size:10px}
- .hero{padding:48px 0 34px}
- .grid{grid-template-columns:1fr;gap:10px}
- .card{min-height:unset;padding:18px}
- .section{padding:20px 0 32px}
- .quote{padding:25px 14px}
-}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=UnifrakturCook:wght@700&display=swap');
+:root{--bg:#08070b;--panel:#15121b;--panel2:#211a2a;--line:#665475;--text:#e4dce9;--muted:#b1a4bd;--accent:#b79bd5}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#261b35 0,#0b0910 45%,#050508 100%);color:var(--text);font-family:'Cormorant Garamond',serif;font-size:18px}
+body:before{content:"BLACK RIVER ✦ ANGEL ✦ SECRETS HEAVEN ✦ FORGET THEM";position:fixed;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:.035;font-size:8vw;transform:rotate(-30deg);text-align:center}
+header{padding:25px 18px;text-align:center;border-bottom:1px solid var(--line);background:#09070dcc}
+.logo{font-family:'UnifrakturCook',cursive;font-size:40px;color:#d2c0e4;letter-spacing:2px}.sub{color:var(--muted);font-style:italic}
+nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:14px;position:sticky;top:0;background:#09070eea;z-index:3;border-bottom:1px solid var(--line)}
+nav button{background:transparent;border:1px solid var(--line);color:var(--text);padding:9px 16px;border-radius:30px;font:inherit;cursor:pointer}
+nav button.active,nav button:hover{background:var(--panel2);border-color:var(--accent);box-shadow:0 0 12px #8c6bb455}
+nav button.disabled{opacity:.38;cursor:not-allowed;text-decoration:line-through}
+main{max-width:1100px;margin:auto;padding:28px 18px}.page{display:none}.page.active{display:block}
+h1,h2,h3{color:#d9c4ed;font-weight:500}h1{text-align:center;font-size:38px}h2{font-size:28px}.intro{text-align:center;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card,.panel{border:1px solid var(--line);background:linear-gradient(140deg,#1c1724,#0e0c12);border-radius:14px;padding:16px;box-shadow:0 5px 20px #0005}
+.card{cursor:pointer;transition:.2s}.card:hover{transform:translateY(-3px);border-color:var(--accent)}
+.card h2{margin:0 0 7px}.card p{margin:7px 0}.muted{color:var(--muted)}.small{font-size:16px}
+.profileTop{display:grid;grid-template-columns:minmax(200px,300px) minmax(230px,320px) 1fr;gap:16px;align-items:start}
+.portrait{min-height:320px;display:flex;align-items:center;justify-content:center;text-align:center;border:1px solid var(--line);border-radius:12px;background:linear-gradient(145deg,#282034,#0a0910);padding:18px;color:var(--muted);font-style:italic}
+table{width:100%;border-collapse:collapse;background:#110e16;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+td{padding:10px;border-bottom:1px solid #45364f}td:first-child{color:#c8afd9;width:40%}
+.section{margin-top:22px}.back{margin:0 0 20px;background:transparent;border:1px solid var(--line);color:var(--text);padding:8px 14px;border-radius:25px;cursor:pointer}
+.badge{display:inline-block;color:#d4b8f2;border:1px solid var(--accent);padding:2px 8px;border-radius:15px;font-size:14px}
+footer{text-align:center;border-top:1px solid var(--line);padding:22px;color:var(--muted)}
+@media(max-width:780px){.profileTop{grid-template-columns:1fr}.portrait{min-height:240px}.logo{font-size:34px}}
 </style>
 </head>
 <body>
-<div class="topline">✦ AN ARCHIVE OF THE BLACK RIVER ✦</div>
-<header>
-  <div class="wrap">
-    <div class="eyebrow">unofficial universe archive</div>
-    <h1>BLACK RIVER</h1>
-    <div class="subtitle">secrets heaven · forget them</div>
-  </div>
-</header>
-<nav class="wrap" aria-label="Главное меню">
-  <a href="#home">Главная</a>
-  <a href="#characters">Персонажи</a>
-  <a href="#episodes">Эпизоды</a>
-  <a href="#relations">Отношения</a>
-  <a href="#lore">Лор и правила</a>
+<header><div class="logo">Black River Wiki</div><div class="sub">✦ ангелы · тайны · чёрная река ✦</div></header>
+<nav id="nav">
+<button data-page="home" class="active">Главная</button><button data-page="characters">Персонажи</button>
+<button class="disabled" title="Раздел временно отключён" aria-disabled="true">Эпизоды</button>
+<button data-page="lore">Лор и правила</button><button data-page="updates">Обновления</button><button data-page="about">О сайте</button>
 </nav>
-<main class="wrap" id="home">
-  <section class="hero">
-    <div class="ornament">✧ ─────── ✦ ─────── ✧</div>
-    <h2>Добро пожаловать в Black River</h2>
-    <p>Архив персонажей, историй, отношений и тайн мира Black River. Здесь собраны материалы авторского проекта.</p>
-    <div class="rule"></div>
-    <div class="eyebrow">THE HOTEL KEEPS ITS SECRETS</div>
-  </section>
-
-  <section class="section" id="characters">
-    <div class="section-head"><h3>Персонажи</h3></div>
-    <div class="grid">
-      <article class="card"><h4>Азраил</h4><p>Руководитель отеля. Ангел смерти.</p><span class="tag">Персонаж</span></article>
-      <article class="card"><h4>Ситри Лейн</h4><p>Ангел смерти. Один из работников отеля.</p><span class="tag">Персонаж</span></article>
-      <article class="card"><h4>Хамуки Ханахаки</h4><p>Дворецкий и единственный не-ангел среди работников.</p><span class="tag">Персонаж</span></article>
-      <article class="card"><h4>Катрина Вэйвэй</h4><p>Администратор отеля.</p><span class="tag">Персонаж</span></article>
-      <article class="card"><h4>Хохо</h4><p>Падший ангел.</p><span class="tag">Персонаж</span></article>
-      <article class="card"><h4>Тинн</h4><p>Персонаж истории Black River.</p><span class="tag">Персонаж</span></article>
-      <article class="card"><h4>Фол</h4><p>Певица группы Color Birds.</p><span class="tag">Персонаж</span></article>
-      <article class="card"><h4>Коко</h4><p>Участница Color Birds.</p><span class="tag">Персонаж</span></article>
-      <article class="card"><h4>Бат</h4><p>Персонаж, связанный с историей Color Birds.</p><span class="tag">Персонаж</span></article>
-    </div>
-  </section>
-
-  <section class="section" id="episodes">
-    <div class="section-head"><h3>Эпизоды</h3></div>
-    <div class="grid">
-      <article class="card"><h4>S1E3 · Цена выбора</h4><p>История Катрины и её пути в отель.</p><span class="tag">Сезон 1</span></article>
-      <article class="card"><h4>S1E6 · Хеллоуин по чужим правилам</h4><p>Хэллоуин в отеле.</p><span class="tag">Сезон 1</span></article>
-      <article class="card"><h4>S1E7 · Прогулка в лесу</h4><p>Воспоминание о поездке в лес.</p><span class="tag">Сезон 1</span></article>
-      <article class="card"><h4>S2E4 · Ещё немного</h4><p>История Хамуки и загадочного лекарства.</p><span class="tag">Сезон 2</span></article>
-      <article class="card"><h4>S2E8 · Семейные проблемы</h4><p>Визит Хохо в отель.</p><span class="tag">Сезон 2</span></article>
-      <article class="card"><h4>S3E7 · Проклятый род</h4><p>Хамуки, Ситри и поездка на родину.</p><span class="tag">Сезон 3</span></article>
-      <article class="card"><h4>S3E8 · По ту сторону обвинения</h4><p>Хохо и Олд.</p><span class="tag">Сезон 3</span></article>
-      <article class="card"><h4>S3E9 · Чужие чувства</h4><p>Вечер в баре и признание Ситри.</p><span class="tag">Сезон 3</span></article>
-      <article class="card"><h4>S3E10 · Когда чувства меняются</h4><p>Разговор Ситри и Хамуки.</p><span class="tag">Сезон 3</span></article>
-      <article class="card"><h4>S4E1 · Плохой работник</h4><p>Ситри сталкивается с переутомлением и принимает поддержку.</p><span class="tag">Сезон 4</span></article>
-      <article class="card"><h4>S4E2 · Кошмарные слухи</h4><p>Сон Азраила и слухи в отеле.</p><span class="tag">Сезон 4</span></article>
-      <article class="card"><h4>S4E3 · Под светом софитов</h4><p>Концерт Color Birds.</p><span class="tag">Сезон 4</span></article>
-    </div>
-  </section>
-
-  <section class="section" id="relations">
-    <div class="section-head"><h3>Отношения</h3></div>
-    <div class="card"><h4>Связи между персонажами</h4><p>Раздел для подтверждённых автором отношений и важных взаимодействий. Не все намёки означают канонную пару.</p></div>
-  </section>
-
-  <section class="section" id="lore">
-    <div class="section-head"><h3>Лор и правила</h3></div>
-    <div class="card"><h4>Отель Black River</h4><p>Справочная информация о мире, устройстве отеля, правилах и подтверждённых фактах канона.</p></div>
-  </section>
-
-  <div class="quote">
-    <p>«The river remembers everything.»</p>
-    <small>BLACK RIVER ARCHIVE</small>
-  </div>
-</main>
-<footer>
-  <p>BLACK RIVER WIKI — АВТОРСКИЙ ПРОЕКТ</p>
-  <p>При создании сайта использовался искусственный интеллект (ИИ).</p>
-  <p>✦ · ✧ · ✦</p>
-</footer>
-</body>
-</html>
+<main>
+<section class="page active" id="home"><h1>Добро пожаловать</h1><p class="intro">Добро пожаловать в архив Black River — место, где собраны персонажи, истории и тайны.</p>
+<div class="panel section"><h2>Последнее обновление</h2><span class="badge">НОВИНКА</span><h3>Изменён лор Азраила</h3><p class="muted">Здесь будут появляться заметки о новых изменениях в мире Black River.</p><button class="back" onclick="show('updates')">Все обновления →</button></div>
+<div class="panel section"><h2>Навигация</h2><p>Выберите раздел в меню сверху, чтобы открыть его.</p></div></section>
+<section class="page" id="characters"><h1>Персонажи</h1><p class="intro">Нажмите на карточку, чтобы открыть страницу героя.</p><div class="grid" id="characterGrid"></div></section>
+<section class="page" id="profile"><button class="back" onclick="show('characters')">← Назад к персонажам</button><h1 id="pname"></h1><div class="profileTop">
+<div class="portrait" id="portrait">Упс, его внешность ещё неизвестна :(</div><table id="info"></table><div id="quick"></div></div>
+<div class="section panel"><h2>Характер</h2><div id="char"></div></div><div class="section panel"><h2>Внешность</h2><div id="looks"></div></div><div class="section panel"><h2>Способности</h2><div id="powers"></div></div><div class="section panel"><h2>Интересные факты</h2><div id="facts"></div></div></section>
+<section class="page" id="lore"><h1>Лор и правила</h1><p class="intro">Раздел пока находится в разработке.</p></section>
+<section class="page" id="updates"><h1>Обновления</h1><div class="panel"><span class="badge">НОВИНКА</span><h2>Изменён лор Азраила</h2><p>Здесь будет описание изменений и даты обновлений.</p></div></section>
+<section class="page" id="about"><h1>О сайте</h1><div class="panel"><p>Black River Wiki — авторский проект.</p><p class="muted">При создании сайта использовался искусственный интеллект (ИИ).</p></div></section>
+</main><footer>Black River Wiki — авторский проект · ✦</footer>
+<script>
+const characters=[
+{name:"Азраил",race:"Ангел",short:"Холодный, прямолинейный и отстранённый; редко проявляет настоящие эмоции.",lookShort:"Белые волосы с голубыми кончиками, чёрный нимб и белые крылья.",role:"Ангел смерти · Руководитель отеля",age:"160",orientation:"Неизвестно",gender:"Небинарный",status:"Жив",character:"Холодный, пустой, прямолинейный. Часто имитирует проявления тепла, но редко испытывает настоящие эмоции.",looks:"Белые волосы с голубыми кончиками, чёрный нимб, белые крылья, повязка на глазах. Под повязкой — белые крестовидные глаза.",powers:"Подтверждённые способности и их подробности будут добавлены по мере раскрытия канона.",facts:"Руководит отелем. Появляется неожиданно и часто кажется знающим больше, чем показывает.",extra:"Ангел смерти"},
+{name:"Катрина",race:"Ангел",short:"Строгая и уверенная в себе, держит дистанцию и умеет быть практичной.",lookShort:"Высокая девушка с очками, чёрным беретом и звёздными зрачками.",role:"Сотрудница отеля",age:"190",orientation:"Неизвестно",gender:"Женский",status:"Жива",character:"Строгая, практичная и уверенная в себе.",looks:"Очень высокая, носит очки, чёрный берет; зрачки напоминают звёзды, левая рука забинтована.",powers:"Подробности способностей пока не собраны в этом демонстрационном файле.",facts:"В прошлом испытывала давление из-за модельной деятельности, пианино и искусства.",extra:"Ангел смерти"},
+{name:"Ситри",race:"Ангел",short:"Закрытый, раздражительный и недоверчивый; не любит лишнего внимания.",lookShort:"Светлые волосы, повязка на один глаз.",role:"Сотрудник отеля",age:"Неизвестно",orientation:"Гей",gender:"Мужской",status:"Жив",character:"Закрытый, раздражительный, защитный, недоверчивый и неловкий в общении.",looks:"Светлые волосы; один глаз был удалён в ходе ритуала Азраила.",powers:"В этом демонстрационном профиле пока не описаны.",facts:"Любит музыку и когда-то хотел заниматься ею; подробности истории ещё будут добавлены.",extra:"Ангел смерти"},
+{name:"Хамуки Ханахаки",race:"Паук",short:"Наблюдательный и порой скрывает свои настоящие переживания.",lookShort:"Серые волосы, чёрные глаза с красными трещинами и две звёздные заколки.",role:"Дворецкий отеля",age:"Неизвестно",orientation:"Неизвестно",gender:"Мужской",status:"Жив",character:"Наблюдательный, умеет поддерживать разговор и сохраняет многое при себе.",looks:"Серые волосы в хвосте, чёрные глаза с красными трещинами, две звёздные заколки; хвост паука.",powers:"Подробности его секретных способностей не раскрываются в этом демонстрационном профиле.",facts:"Единственный не-ангел среди работников отеля. Мать — Орхид.",extra:"Дворецкий"},
+{name:"Хохо",race:"Падший ангел",short:"Резкая, дерзкая и отстранённая, предпочитает держать других на расстоянии.",lookShort:"Подробное описание внешности будет добавлено.",role:"Персонаж Black River",age:"Неизвестно",orientation:"Неизвестно",gender:"Женский",status:"Жива",character:"Дерзкая, резкая, язвительная и отстранённая.",looks:"Уточняется.",powers:"Уточняется.",facts:"Живёт с Олд; является дочерью Бога.",extra:"Падший ангел"}];
+const grid=document.getElementById('characterGrid');
+characters.forEach((c,i)=>{const card=document.createElement('div');card.className='card';card.innerHTML=`<h2>${c.name}</h2><p class="muted">Раса: ${c.race}</p><p>${c.short}</p><p class="small muted">${c.lookShort}</p><p class="small">✦ ${c.role}</p><p class="muted">Узнать больше →</p>`;card.onclick=()=>openProfile(i);grid.appendChild(card)});
+function show(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('nav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));window.scrollTo(0,0)}
+function openProfile(i){const c=characters[i];show('profile');document.getElementById('pname').textContent=c.name;document.getElementById('info').innerHTML=`<tr><td>Раса</td><td>${c.race}</td></tr><tr><td>Возраст</td><td>${c.age}</td></tr><tr><td>Ориентация</td><td>${c.orientation}</td></tr><tr><td>Пол / гендер</td><td>${c.gender}</td></tr><tr><td>Статус</td><td>${c.status}</td></tr>`;document.getElementById('quick').innerHTML=`<h2>${c.role}</h2><p class="muted">Профиль демонстрационный. Сведения можно расширить и уточнить.</p>`;document.getElementById('char').textContent=c.character;document.getElementById('looks').textContent=c.looks;document.getElementById('powers').textContent=c.powers;document.getElementById('facts').textContent=c.facts;document.getElementById('portrait').textContent='Упс, его внешность ещё неизвестна :('}
+document.querySelectorAll('nav button[data-page]').forEach(b=>b.onclick=()=>show(b.dataset.page));
+</script></body></html>
