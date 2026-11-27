@@ -1,68 +1,87 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Black River Wiki</title>
 <style>
-:root{--bg:#0d0b12;--panel:#17131f;--panel2:#211a2d;--accent:#a98ad7;--text:#eee8f5;--muted:#b5a8c6;--line:#55436b}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#21172d,var(--bg) 60%);color:var(--text);font-family:Georgia,'Times New Roman',serif}
-header{padding:24px 18px 12px;text-align:center;border-bottom:1px solid var(--line)}header h1{letter-spacing:4px;margin:0;font-size:clamp(24px,5vw,40px)}header p{color:var(--muted);margin:8px 0}
-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:14px;background:#100d17;position:sticky;top:0;z-index:5;border-bottom:1px solid var(--line)}
-nav button,.btn{background:var(--panel2);color:var(--text);border:1px solid var(--line);padding:10px 15px;border-radius:8px;cursor:pointer;font:inherit}nav button:hover,.btn:hover{border-color:var(--accent);background:#30243f}.disabled{opacity:.4;text-decoration:line-through;cursor:not-allowed}
-main{max-width:1100px;margin:0 auto;padding:24px 16px;min-height:70vh}.section{display:none}.section.active{display:block}.intro,.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:18px;box-shadow:0 10px 30px #0003}
-h2,h3{color:#d8c2f2}h2{border-bottom:1px solid var(--line);padding-bottom:10px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}.card{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:12px;padding:16px;cursor:pointer;transition:.15s}.card:hover{transform:translateY(-2px);border-color:var(--accent)}.card h3{margin-top:0}.muted{color:var(--muted)}.new{display:inline-block;background:#7a4c99;color:white;padding:3px 8px;border-radius:5px;font-size:12px;letter-spacing:1px}.back{margin-bottom:16px}.profile-layout{display:grid;grid-template-columns:minmax(180px,300px) 1fr;gap:18px}.portrait{min-height:270px;border:1px dashed var(--accent);background:#100d17;border-radius:12px;display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;color:var(--muted)}table{border-collapse:collapse;width:100%;margin-top:10px}td{border-bottom:1px solid var(--line);padding:9px 6px;vertical-align:top}td:first-child{color:var(--muted);width:38%}.subpanel{background:#100d17;border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:16px}.lore-list .card{border-left:3px solid #8e6db8}.lore-page{background:linear-gradient(160deg,#191323,#100d17);border:1px solid #7d609c;padding:22px;border-radius:14px;box-shadow:inset 0 0 30px #8e6db822}.lore-page h2{letter-spacing:2px}.notice{padding:14px;border:1px dashed var(--accent);border-radius:10px;color:var(--muted)}footer{text-align:center;color:var(--muted);border-top:1px solid var(--line);padding:24px 14px;font-size:14px}
-@media(max-width:700px){.profile-layout{grid-template-columns:1fr}.portrait{min-height:180px}nav{position:static}}
-</style>
-</head>
+*{box-sizing:border-box}body{margin:0;background:#080808;color:#ddd;font-family:Georgia,"Times New Roman",serif}
+header{text-align:center;padding:28px 15px;border-bottom:1px solid #333;background:linear-gradient(#171717,#080808)}
+header h1{letter-spacing:5px;font-weight:normal}header p{color:#777;font-style:italic}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;padding:14px;background:#111;border-bottom:1px solid #333}
+button{font-family:inherit;cursor:pointer}nav button{background:#171717;color:#ccc;border:1px solid #393939;padding:10px 14px}nav button:hover,nav button.active{background:#333;border-color:#aaa;color:#fff}nav button.disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+main{max-width:1150px;margin:auto;padding:24px}section{display:none}section.active{display:block}h2{font-weight:normal;letter-spacing:2px;border-bottom:1px solid #333;padding-bottom:10px}
+.card{background:#141414;border:1px solid #333;padding:18px;margin:10px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.character-card,.lore-card{cursor:pointer}.character-card:hover,.lore-card:hover{border-color:#888}.muted{color:#777}
+.portrait{min-height:230px;border:1px solid #333;background:#0b0b0b;display:flex;align-items:center;justify-content:center;text-align:center;color:#777;padding:20px}
+.profile-layout{display:grid;grid-template-columns:280px 1fr;gap:20px;align-items:start}table{width:100%;border-collapse:collapse;margin:15px 0}td,th{border:1px solid #333;padding:11px;text-align:left}th{background:#161616;color:#aaa;width:35%}
+.back{padding:10px 16px;background:#191919;color:white;border:1px solid #444;margin-bottom:20px}.back:hover{background:#333}
+#chartWrap{overflow:hidden;position:relative;background:#0d0d0d;border:1px solid #333;padding:12px}
+#chart{display:block;width:100%;max-width:760px;margin:auto;min-height:390px}
+.chart-node{cursor:pointer}.chart-node circle{fill:#181818;stroke:#888;stroke-width:1.5}.chart-node.selected circle{stroke:#fff;stroke-width:3}.chart-node text{fill:#ddd;font-size:12px;text-anchor:middle;pointer-events:none}
+.chart-node:hover circle{fill:#393939}.chart-node rect{fill:#141414;stroke:#555}.chart-legend{display:flex;flex-wrap:wrap;gap:9px;margin:15px 0}.chart-legend span{background:#141414;border:1px solid #333;padding:8px 10px;font-size:14px}
+.chart-controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.chart-controls select{background:#111;color:#eee;border:1px solid #555;padding:9px}
+.chart-line{stroke:#555;stroke-width:1.4;stroke-dasharray:4 4;opacity:.65}.chart-center{fill:#111;stroke:#333;stroke-width:1}
+footer{text-align:center;color:#666;border-top:1px solid #333;padding:25px;margin-top:30px;font-size:13px}
+@media(max-width:700px){.profile-layout{grid-template-columns:1fr}main{padding:14px}#chart{min-height:330px}}
+</style></head>
 <body>
-<header><h1>BLACK RIVER</h1><p>Авторская wiki • архив персонажей и истории</p></header>
+<header><h1>BLACK RIVER</h1><p>Архив мира Black River</p></header>
 <nav>
-<button onclick="showSection('home')">Главная</button>
-<button onclick="showSection('characters')">Персонажи</button>
-<button onclick="showSection('lore')">Лор</button>
-<button onclick="showSection('updates')">Обновления</button>
-<button class="disabled" title="Раздел временно отключён" aria-disabled="true">Эпизоды</button>
+<button class="active" data-tab="home">Главная</button><button data-tab="characters">Персонажи</button><button data-tab="lore">Лор</button><button data-tab="au">АУ</button><button data-tab="relationships">Взаимодействия</button><button class="disabled" title="Временно недоступно">Эпизоды</button><button data-tab="updates">Обновления</button>
 </nav>
 <main>
-<section id="home" class="section active">
-<div class="intro"><h2>Добро пожаловать в Black River Wiki</h2><p>Архив мира Black River. Здесь собраны персонажи, их истории и новости проекта.</p></div>
-<div class="panel"><span class="new">НОВИНКА</span><h3>Изменён лор Азраила</h3><p class="muted">Последнее обновление проекта — подробности можно посмотреть в разделе «Обновления».</p></div>
-<div class="grid"><div class="card" onclick="showSection('characters')"><h3>Персонажи</h3><p class="muted">Карточки и личные страницы героев.</p></div><div class="card" onclick="showSection('lore')"><h3>Лор</h3><p class="muted">Истории персонажей.</p></div><div class="card" onclick="showSection('updates')"><h3>Обновления</h3><p class="muted">Новости и изменения wiki.</p></div></div>
+<section id="home" class="active"><h2>Добро пожаловать</h2><div class="card"><h3>BLACK RIVER WIKI</h3><p>Архив мира Black River.</p><p class="muted">Персонажи, истории и связи.</p></div><div class="grid">
+<div class="card character-card" onclick="switchTab('characters')"><h3>Персонажи</h3><p class="muted">Обитатели Black River</p></div>
+<div class="card" onclick="switchTab('lore')"><h3>Лор</h3><p class="muted">Истории персонажей</p></div>
+<div class="card" onclick="switchTab('au')"><h3>АУ</h3><p class="muted">Альтернативные вселенные</p></div>
+<div class="card" onclick="switchTab('relationships')"><h3>Взаимодействия</h3><p class="muted">Схема связей</p></div></div></section>
+<section id="characters"><h2>Персонажи</h2><div id="characterGrid" class="grid"></div><div id="characterDetail"></div></section>
+<section id="lore"><h2>Лор</h2><div id="loreGrid" class="grid"></div><div id="loreDetail"></div></section>
+<section id="au"><h2>АУ</h2><div class="card"><p class="muted">Здесь будут собраны альтернативные вселенные.</p></div></section>
+<section id="relationships"><h2>Взаимодействия</h2>
+<div class="card"><h3>Обозначения</h3><div class="chart-legend"><span>❤️ Нравится</span><span>💜 Семья</span><span>💚 Дружба</span><span>🖤 Неприязнь / ненависть</span><span>💙 Не знакомы / неизвестно</span><span>💛 Знакомы</span></div></div>
+<div class="card chart-controls"><label for="chartSelect">Выберите персонажа:</label><select id="chartSelect" onchange="drawChart()"><option value="">Выбрать...</option></select><span class="muted">Нажмите на персонажа на схеме, чтобы выбрать его.</span></div>
+<div id="chartWrap"><svg id="chart" viewBox="0 0 760 520" aria-label="Круговая схема взаимодействий"></svg></div>
+<div class="card" id="chartDetails"><p class="muted">Выберите персонажа, чтобы открыть его схему.</p></div>
 </section>
-<section id="characters" class="section"><h2>Персонажи</h2><div id="characterGrid" class="grid"></div></section>
-<section id="characterDetail" class="section"><button class="btn back" onclick="showSection('characters')">← Назад к персонажам</button><div id="characterContent"></div></section>
-<section id="lore" class="section"><h2>Архив лора</h2><p class="muted">Выберите персонажа, чтобы открыть его историю.</p><div id="loreGrid" class="grid lore-list"></div></section>
-<section id="loreDetail" class="section"><button class="btn back" onclick="showSection('lore')">← Назад к лору</button><div id="loreContent" class="lore-page"></div></section>
-<section id="updates" class="section"><h2>Обновления</h2><div class="panel"><span class="new">НОВИНКА</span><h3>Изменён лор Азраила</h3><p class="muted">Демонстрационная запись обновления. Здесь будут появляться новые изменения сайта.</p></div></section>
-</main>
-<footer>При создании сайта использовался искусственный интеллект (ИИ).<br>Black River Wiki — авторский проект.</footer>
+<section id="updates"><h2>Обновления</h2><div class="card"><p class="muted">Пока обновлений нет.</p></div></section>
+</main><footer><p>Black River Wiki — авторский проект.</p><p>При создании сайта использовался искусственный интеллект (ИИ).</p></footer>
 <script>
 const characters=[
-{name:"Азраил",surname:"",race:"Ангел смерти",age:"160",orientation:"Неизвестно",sex:"Небинарный",status:"Жив",personality:"Холодный, прямолинейный и эмоционально отстранённый. Иногда имитирует проявления теплоты.",appearance:"Белые волосы с голубыми кончиками, повязка (иногда без неё), белые перекрещенные глаза, чёрный нимб, белые крылья и бинты.",abilities:"Не указаны в этой карточке.",facts:"Руководитель отеля. Память связана с чёрной рекой и плавающими звёздами.",lore:""},
-{name:"Ситри",surname:"Лейн",race:"Ангел смерти",age:"Неизвестно",orientation:"Гей",sex:"Мужской",status:"Жив",personality:"Замкнутый, раздражительный, недоверчивый, защитный и неловкий.",appearance:"Внешность пока не добавлена в wiki.",abilities:"Не указаны.",facts:"У него удалён один глаз в результате ритуала Азраила. Иногда курит.",lore:""},
-{name:"Хамуки",surname:"Ханахаки",race:"Паучья раса",age:"Неизвестно",orientation:"Неизвестно",sex:"Неизвестно",status:"Жив",personality:"Характер будет добавлен автором.",appearance:"Серые волосы в хвост, чёрные глаза с красными трещинами, две звёздные заколки и хвост.",abilities:"Хвост может ненадолго обездвижить того, кого коснётся. Остальные способности не раскрываются.",facts:"Работает дворецким в отеле. Его мать — Орхидея.",lore:""},
-{name:"Катрина",surname:"Вэйвэй",race:"Ангел смерти",age:"Неизвестно (чуть старше Ситри)",orientation:"Неизвестно",sex:"Женский",status:"Жив",personality:"Характер пока не добавлен.",appearance:"Чёрный берет, очки, звёздные зрачки и бинты на левой руке.",abilities:"Не указаны.",facts:"В человеческом прошлом испытывала давление из-за модельной карьеры, пианино и искусства.",lore:""},
-{name:"Хохо",surname:"",race:"Падший ангел",age:"Неизвестно",orientation:"Ранее aroace",sex:"Женский",status:"Жив",personality:"Дерзкая, отстранённая, язвительная, резкая и закрытая.",appearance:"Внешность пока не добавлена.",abilities:"Не указаны.",facts:"Дочь Бога. Живёт с Олдом.",lore:""},
-{name:"Утопленник",surname:"",race:"Неизвестно",age:"Неизвестно",orientation:"Неизвестно",sex:"Неизвестно",status:"Неизвестно",personality:"Не указано.",appearance:"Синие волосы и кожа, звёздные зрачки, талисман на лбу, чёрная шляпа и пальто, золотой кулон и рыбный хвост.",abilities:"Не указаны.",facts:"Его настоящее имя — Мако; в wiki используется имя «Утопленник».",lore:""},
-{name:"Олд",surname:"",race:"Неизвестно",age:"Неизвестно",orientation:"Неизвестно",sex:"Неизвестно",status:"Неизвестно",personality:"Не указано.",appearance:"Зелёные волосы с тёмными кончиками, красные глаза, рога, маленькие красные демонические и белые крылья, тёмный нимб.",abilities:"Не указаны.",facts:"Белый элемент за крыльями — бант.",lore:""},
-{name:"Фол",surname:"",race:"Ара",age:"Неизвестно",orientation:"Неизвестно",sex:"Женский",status:"Неизвестно",personality:"Не указано.",appearance:"Синяя кожа, серо-голубые волосы, фиолетовые глаза, чёрная слеза, белый берет с чёрной лентой и многослойные крылья.",abilities:"Не указаны.",facts:"Певица. Ненавидит Ситри.",lore:""},
-{name:"Коко",surname:"",race:"Ара",age:"Неизвестно",orientation:"Неизвестно",sex:"Неизвестно",status:"Неизвестно",personality:"Не указано.",appearance:"Красная кожа, розово-красные волосы, белая звезда под глазом, красные крылья, тёмный берет и длинная лента.",abilities:"Не указаны.",facts:"Ранее выступала с Фол.",lore:""},
-{name:"Бет",surname:"",race:"Неизвестно",age:"Неизвестно",orientation:"Неизвестно",sex:"Женский",status:"Неизвестно",personality:"Не указано.",appearance:"Тёплая красно-оранжевая кожа, каштановые волосы, кепка с ушками, светлые глаза, хвост с сердцем, красный комбинезон.",abilities:"Магия порталов; сфера для фейерверков.",facts:"Ушки на кепке не подтверждают наличие настоящих лисьих ушей.",lore:""},
-{name:"Орхидея",surname:"",race:"Неизвестно",age:"Неизвестно",orientation:"Неизвестно",sex:"Женский",status:"Неизвестно",personality:"Не указано.",appearance:"Внешность пока не добавлена.",abilities:"Не указаны.",facts:"Мать Хамуки.",lore:""},
-{name:"Кики",surname:"",race:"Паучья раса",age:"Неизвестно",orientation:"Неизвестно",sex:"Неизвестно",status:"Неизвестно",personality:"Не указано.",appearance:"Внешность пока не добавлена.",abilities:"Не указаны.",facts:"Ростом выше Хамуки; одного роста с Орхидеей.",lore:""}
+{id:"azrael",name:"Азраил",race:"Ангел смерти",age:"Неизвестно",orientation:"Неизвестно",gender:"Небинарный",status:"Жив",personality:"Холодный, пустой, прямолинейный.",appearance:"Белые волосы с голубыми кончиками, повязка на глаза, белые кресты вместо глаз, чёрный нимб, белые крылья и бинты.",abilities:"Неизвестно",facts:"Руководитель отеля. Его воспоминания связаны с чёрной рекой и плавающими звёздами."},
+{id:"sitri",name:"Ситри Лейн",race:"Ангел смерти",age:"Неизвестно",orientation:"Гей",gender:"Мужской",status:"Жив",personality:"Закрытый, раздражительный, недоверчивый, неловкий.",appearance:"Неизвестно",abilities:"Неизвестно",facts:"У него отсутствует один глаз после ритуала Азраила. Иногда курит."},
+{id:"hamuki",name:"Хамуки Ханахаки",race:"Паучья раса",age:"Неизвестно",orientation:"Неизвестно",gender:"Неизвестно",status:"Жив",personality:"Неизвестно",appearance:"Серые волосы в хвосте, чёрные глаза с красными трещинами, две звёздные заколки, хвост. Одежда дворецкого.",abilities:"Неизвестно",facts:"Дворецкий отеля и единственный работник, не являющийся ангелом. Мать — Орхидея."},
+{id:"katrina",name:"Катрина Вэйвэй",race:"Ангел смерти",age:"Неизвестно",orientation:"Неизвестно",gender:"Женский",status:"Жив",personality:"Неизвестно",appearance:"Чёрный берет, очки, звёздные зрачки, левая рука забинтована.",abilities:"Неизвестно",facts:"Рост — 190 см."},
+{id:"hoho",name:"Хохо",race:"Падший ангел",age:"Неизвестно",orientation:"Неизвестно",gender:"Женский",status:"Жив",personality:"Резкая, саркастичная, отстранённая, колкая.",appearance:"Неизвестно",abilities:"Неизвестно",facts:"Дочь Бога. Живёт с Олдом."},
+{id:"utoplennik",name:"Утопленник",race:"Неизвестно",age:"Неизвестно",orientation:"Неизвестно",gender:"Неизвестно",status:"Неизвестно",personality:"Неизвестно",appearance:"Голубые волосы и кожа, звёздные зрачки, талисман на лбу, чёрная одежда и рыбий хвост.",abilities:"Неизвестно",facts:"Неизвестно"},
+{id:"old",name:"Олд",race:"Неизвестно",age:"Неизвестно",orientation:"Неизвестно",gender:"Неизвестно",status:"Неизвестно",personality:"Неизвестно",appearance:"Зелёные волосы с тёмными кончиками, красные глаза, рога, крылья и нимб.",abilities:"Неизвестно",facts:"Неизвестно"},
+{id:"kiki",name:"Кики",race:"Паучья раса",age:"Неизвестно",orientation:"Неизвестно",gender:"Неизвестно",status:"Неизвестно",personality:"Неизвестно",appearance:"Неизвестно",abilities:"Неизвестно",facts:"Рост выше Хамуки. Рост совпадает с Орхидеей."},
+{id:"orchid",name:"Орхидея",race:"Неизвестно",age:"Неизвестно",orientation:"Неизвестно",gender:"Неизвестно",status:"Неизвестно",personality:"Неизвестно",appearance:"Неизвестно",abilities:"Неизвестно",facts:"Мать Хамуки."}
 ];
-function showSection(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
-function buildCards(){
-const cg=document.getElementById('characterGrid'),lg=document.getElementById('loreGrid');
-characters.forEach((c,i)=>{
-let card=document.createElement('div');card.className='card';card.innerHTML=`<h3>${c.name} ${c.surname}</h3><p><b>Раса:</b> ${c.race}</p><p>${c.personality}</p><p class="muted">${c.appearance}</p><p class="muted"><b>Дополнительно:</b> ${c.facts}</p>`;card.onclick=()=>openCharacter(i);cg.appendChild(card);
-let loreCard=document.createElement('div');loreCard.className='card';loreCard.innerHTML=`<h3>${c.name} ${c.surname}</h3><p class="muted">Узнать побольше →</p>`;loreCard.onclick=()=>openLore(i);lg.appendChild(loreCard);
-});
+const loreData={};
+const rel={};characters.forEach(a=>{rel[a.id]={};characters.forEach(b=>{if(a.id!==b.id)rel[a.id][b.id]="💙";});});
+function switchTab(id){document.querySelectorAll("main section").forEach(s=>s.classList.remove("active"));document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));document.getElementById(id)?.classList.add("active");document.querySelector('nav button[data-tab="'+id+'"]')?.classList.add("active");window.scrollTo(0,0)}
+document.querySelectorAll("nav button[data-tab]").forEach(b=>b.addEventListener("click",()=>switchTab(b.dataset.tab)));
+function buildCharacters(){document.getElementById("characterGrid").innerHTML=characters.map(c=>`<div class="card character-card" onclick="openCharacter('${c.id}')"><h3>${c.name}</h3><p class="muted">${c.race}</p><p>${c.personality}</p></div>`).join("")}
+function openCharacter(id){let c=characters.find(x=>x.id===id);document.getElementById("characterGrid").style.display="none";let d=document.getElementById("characterDetail");d.innerHTML=`<button class="back" onclick="closeCharacter()">← Назад</button><h2>${c.name}</h2><div class="profile-layout"><div class="portrait">Упс, его внешность ещё неизвестна :(</div><div><table><tr><th>Раса</th><td>${c.race}</td></tr><tr><th>Возраст</th><td>${c.age}</td></tr><tr><th>Ориентация</th><td>${c.orientation}</td></tr><tr><th>Пол</th><td>${c.gender}</td></tr><tr><th>Статус</th><td>${c.status}</td></tr></table></div></div><h3>Характер</h3><p>${c.personality}</p><h3>Внешность</h3><p>${c.appearance}</p><h3>Способности</h3><p>${c.abilities}</p><h3>Интересные факты</h3><p>${c.facts}</p><button class="back" onclick="openCharacterLore('${id}')">Перейти к лору</button>`;d.style.display="block";window.scrollTo(0,0)}
+function closeCharacter(){document.getElementById("characterDetail").style.display="none";document.getElementById("characterGrid").style.display="grid";window.scrollTo(0,0)}
+function buildLore(){document.getElementById("loreGrid").innerHTML=characters.map(c=>`<div class="card lore-card" onclick="openLore('${c.id}')"><h3>${c.name}</h3><p class="muted">История персонажа</p></div>`).join("")}
+function openLore(id){let c=characters.find(x=>x.id===id);document.getElementById("loreGrid").style.display="none";let d=document.getElementById("loreDetail");d.innerHTML=`<button class="back" onclick="closeLore()">← Назад</button><div class="card"><h2>${c.name}</h2><p>${loreData[id]||"Упс, его Лора не существует :("}</p></div>`;d.style.display="block";window.scrollTo(0,0)}
+function openCharacterLore(id){switchTab("lore");openLore(id)}
+function closeLore(){document.getElementById("loreDetail").style.display="none";document.getElementById("loreGrid").style.display="grid";window.scrollTo(0,0)}
+const emojis=["❤️","💜","💚","🖤","💙","💛"];
+function initChartSelect(){let s=document.getElementById("chartSelect");s.innerHTML='<option value="">Выбрать...</option>'+characters.map(c=>`<option value="${c.id}">${c.name}</option>`).join("");}
+function drawChart(){
+ let id=document.getElementById("chartSelect").value,svg=document.getElementById("chart"),details=document.getElementById("chartDetails");
+ if(!id){svg.innerHTML="";details.innerHTML='<p class="muted">Выберите персонажа, чтобы открыть его схему.</p>';return;}
+ let selected=characters.find(c=>c.id===id),others=characters.filter(c=>c.id!==id),cx=380,cy=255,rx=310,ry=205;
+ let points=others.map((c,i)=>{let a=(-Math.PI/2)+(i*2*Math.PI/others.length);return{x:cx+rx*Math.cos(a),y:cy+ry*Math.sin(a),c};});
+ svg.innerHTML=`<circle class="chart-center" cx="${cx}" cy="${cy}" r="105"/>`+points.map(p=>`<line class="chart-line" x1="${cx}" y1="${cy}" x2="${p.x}" y2="${p.y}"/>`).join("")+
+ `<g class="chart-node selected"><circle cx="${cx}" cy="${cy}" r="72"/><text x="${cx}" y="${cy+4}">${selected.name}</text></g>`+
+ points.map(p=>`<g class="chart-node" onclick="chooseChart('${p.c.id}')"><circle cx="${p.x}" cy="${p.y}" r="34"/><text x="${p.x}" y="${p.y+4}">${p.c.name.length>11?p.c.name.slice(0,10)+"…":p.c.name}</text></g>`).join("");
+ details.innerHTML=`<h3>${selected.name}</h3><p class="muted">Отношения ${selected.name} к другим персонажам</p><table><thead><tr><th>Персонаж</th><th>Отношение</th></tr></thead><tbody>${others.map(c=>`<tr><td>${c.name}</td><td><select onchange="setRelation('${id}','${c.id}',this.value)">${emojis.map(e=>`<option value="${e}" ${rel[id][c.id]===e?'selected':''}>${e}</option>`).join("")}</select></td></tr>`).join("")}</tbody>`;
 }
-function openCharacter(i){let c=characters[i];document.getElementById('characterContent').innerHTML=`<h2>${c.name} ${c.surname}</h2><div class="profile-layout"><div class="portrait">Упс, его внешность ещё неизвестна :(</div><div class="panel"><table><tr><td>Раса</td><td>${c.race}</td></tr><tr><td>Возраст</td><td>${c.age}</td></tr><tr><td>Ориентация</td><td>${c.orientation}</td></tr><tr><td>Пол</td><td>${c.sex}</td></tr><tr><td>Статус</td><td>${c.status}</td></tr></table></div></div><div class="subpanel"><h3>Характер</h3><p>${c.personality}</p></div><div class="subpanel"><h3>Внешность</h3><p>${c.appearance}</p></div><div class="subpanel"><h3>Способности</h3><p>${c.abilities}</p></div><div class="subpanel"><h3>Интересные факты</h3><p>${c.facts}</p></div>`;showSection('characterDetail')}
-function openLore(i){let c=characters[i];let lore=c.lore.trim();document.getElementById('loreContent').innerHTML=`<h2>${c.name} ${c.surname}</h2>${lore?`<div>${lore}</div>`:`<div class="notice">Упс, его Лора не существует :(</div>`}`;showSection('loreDetail')}
-buildCards();
-</script>
-</body>
-</html>
+function chooseChart(id){document.getElementById("chartSelect").value=id;drawChart();}
+function setRelation(a,b,e){rel[a][b]=e;}
+buildCharacters();buildLore();initChartSelect();
+</script></body></html>
